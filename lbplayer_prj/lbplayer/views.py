@@ -16,6 +16,8 @@ def player(request):
             context_instance=template.RequestContext(request))
             
 def handle_uploaded_file(dest, file):
+    if not file:
+        return
     try:
         dest_dir = os.path.join(lbp_settings.LBP_MEDIA_ROOT, dest)
         if not os.path.exists(dest_dir):
